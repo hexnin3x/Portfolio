@@ -1,0 +1,140 @@
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+/* Bio */
+.bio-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.skills-matrix {
+    margin-top: 48px;
+}
+
+.matrix-title {
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.matrix-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.matrix-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--accent-violet);
+}
+
+.matrix-item:nth-child(2) {
+    border-left-color: var(--accent-blue);
+}
+
+.matrix-item:nth-child(3) {
+    border-left-color: var(--accent-cyan);
+}
+
+.matrix-icon {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.matrix-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.matrix-item p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Timeline */
+.timeline-header {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 3px;
+    width: 2px;
+    background: var(--bg-tertiary);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 48px;
+    padding-left: 32px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    z-index: 2;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.timeline-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+
+.timeline-org {
+    display: block;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}

@@ -1,0 +1,109 @@
+.ctf-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    margin-bottom: 32px;
+    font-weight: 600;
+}
+
+/* Platforms */
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.platform-card {
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.platform-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.platform-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.percentile {
+    font-weight: 600;
+    font-family: monospace;
+}
+
+.rank-display {
+    margin-bottom: 12px;
+}
+
+.rank-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.rank-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.points-display {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+    margin-top: 16px;
+}
+
+/* Achievements */
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.achievement-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-violet);
+    flex-shrink: 0;
+}
+
+.achievement-details h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.achievement-details p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .achievements-list {
+        grid-template-columns: 1fr;
+    }
+}
