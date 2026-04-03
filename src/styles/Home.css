@@ -1,0 +1,474 @@
+/* ==============================================================
+   HOME — Cinematic Landing Experience v3 (KINETIC UPGRADE)
+   ============================================================== */
+
+.home-page {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* ============ Kinetic Utilities ============ */
+.kinetic-card, .parallax-text-wrap {
+  will-change: transform, opacity;
+  transition: transform 0.1s cubic-bezier(0.1, 0.5, 0.4, 1), opacity 0.1s;
+}
+
+.magnetic-wrap {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.magnetic-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: none;
+  transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.4, 1);
+}
+
+/* ============ Cursor Follower ============ */
+.cursor-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+/* =====================================================
+   HERO — Full-viewport cinematic
+   ===================================================== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  will-change: transform, opacity;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
+  padding-top: var(--nav-height);
+}
+
+.hero-eyebrow {
+  margin-bottom: 40px;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #22C55E;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 2.5s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(34,197,94,0.5);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.display-hero {
+  max-width: 900px;
+  margin-bottom: 32px;
+}
+
+.hero-period {
+  color: var(--accent-violet);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* ============ Floating UI ============ */
+.hero-floating {
+  position: absolute;
+  bottom: 80px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.floating-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.floating-label .label-sm {
+  font-size: 0.6rem;
+  color: var(--text-dim);
+}
+
+.live-clock {
+  font-family: var(--font-heading);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-dim);
+  animation: bounce-subtle 3s ease-in-out infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.3; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 0.7; }
+}
+
+/* =====================================================
+   KINETIC MARQUEE
+   ===================================================== */
+.kinetic-marquee-wrap {
+  width: 100vw;
+  overflow: hidden;
+  transform: translateX(-32px); /* offset container padding */
+  padding: 40px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.dynamic-scrub {
+  will-change: transform;
+  border: none;
+  padding: 0;
+}
+
+.dynamic-scrub .marquee-track {
+  animation: none; /* override the old css animation, using js transform now */
+}
+
+.dynamic-scrub .marquee-track span {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border-card);
+  opacity: 0.7;
+}
+
+/* =====================================================
+   STATEMENT — Scroll Scrubbing Reveal
+   ===================================================== */
+.statement-section {
+  padding: var(--section-gap) 0;
+  height: 120vh; /* Extremely tall so scroll mapping feels long */
+  display: flex;
+  align-items: center;
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  will-change: transform, opacity;
+}
+
+/* =====================================================
+   STATS
+   ===================================================== */
+.stats-section {
+  padding: 0 0 var(--section-gap);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 56px 0;
+  will-change: transform, opacity;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.stat-block + .stat-block::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--border-subtle);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* =====================================================
+   PROJECT GRID — KINETIC BENTO
+   ===================================================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; /* More breathing room for extreme parallax */
+  margin-top: 80px;
+}
+
+.project-card {
+  min-height: 380px; /* Taller */
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 40px; /* Larger padding */
+}
+
+.project-featured {
+  grid-column: 1 / 3; /* Take 2 columns */
+  grid-row: 1 / 3;
+  min-height: 100%;
+  background: linear-gradient(160deg, rgba(139,92,246,0.04), var(--bg-card));
+}
+
+.project-wide {
+  grid-column: 1 / -1;
+  min-height: auto;
+  padding: 32px 36px;
+}
+
+.project-wide-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.project-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+}
+
+.project-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #22C55E;
+}
+
+.project-arrow {
+  color: var(--text-dim);
+  transition: all 0.4s ease;
+}
+
+.project-card:hover .project-arrow {
+  color: var(--accent-violet);
+  transform: translate(3px, -3px);
+}
+
+.project-card-body {
+  flex: 1;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.metric-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.project-card-footer {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.view-all-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+/* =====================================================
+   CTA — Cinematic final block
+   ===================================================== */
+.cta-section {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-inner {
+  text-align: center;
+  padding: 100px 40px;
+  position: relative;
+  will-change: transform, opacity;
+}
+
+.cta-desc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-featured {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .project-wide {
+    grid-column: 1;
+  }
+  .project-wide-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .stat-block + .stat-block::before {
+    display: none;
+  }
+  .hero-floating {
+    display: none;
+  }
+}

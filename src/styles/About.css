@@ -1,0 +1,281 @@
+/* ==============================================================
+   ABOUT — Kinetic Skill Showcase v3
+   ============================================================== */
+
+.about-page {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 60px;
+  align-items: center;
+}
+
+/* ===================== INTERACTIVE TERMINAL ===================== */
+.terminal-block {
+  background: rgba(10, 10, 10, 0.8) !important;
+  border: 1px solid var(--border-subtle) !important;
+  padding: 0 !important;
+  border-radius: var(--radius-lg) !important;
+  will-change: transform;
+  transition: transform 0.1s cubic-bezier(0.1, 0.5, 0.4, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.term-dots {
+  display: flex;
+  gap: 6px;
+  margin-right: 20px;
+}
+
+.term-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.term-dots span:nth-child(1) { background: #FF5F56; }
+.term-dots span:nth-child(2) { background: #FFBD2E; }
+.term-dots span:nth-child(3) { background: #27C93F; }
+
+.term-title {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.terminal-body {
+  padding: 24px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  min-height: 300px;
+}
+.terminal-body::-webkit-scrollbar { width: 4px; }
+.terminal-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+.term-line {
+  margin-bottom: 8px;
+}
+
+.prompt {
+  color: var(--accent-cyan);
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+.term-line.cmd { color: var(--text-primary); }
+.term-line.out { color: var(--text-secondary); }
+.term-line.alert { color: var(--accent-pink); font-weight: bold; }
+
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-start infinite;
+  color: var(--accent-violet);
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ===================== STORY TEXT ===================== */
+.about-text-block {
+  will-change: transform;
+  transition: transform 0.1s cubic-bezier(0.1, 0.5, 0.4, 1);
+}
+
+.lead-text {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.secondary-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ===================== EXPERIENCE TIMELINE ===================== */
+.experience-section {
+  padding-top: 140px;
+}
+
+.timeline-wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-void);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.05);
+  background: var(--text-muted);
+}
+
+.timeline-dot.violet { background: var(--accent-violet); box-shadow: 0 0 10px rgba(139,92,246,0.3), 0 0 0 4px rgba(255,255,255,0.03); }
+.timeline-dot.cyan { background: var(--accent-cyan); box-shadow: 0 0 10px rgba(6,182,212,0.3), 0 0 0 4px rgba(255,255,255,0.03); }
+.timeline-dot.pink { background: var(--accent-pink); box-shadow: 0 0 10px rgba(236,72,153,0.3), 0 0 0 4px rgba(255,255,255,0.03); }
+
+.timeline-content {
+  padding: 32px;
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.timeline-company {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.text-violet { color: var(--accent-violet); }
+.text-cyan { color: var(--accent-cyan); }
+.text-pink { color: var(--accent-pink); }
+
+.timeline-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===================== RADAR GRID ===================== */
+.radar-section {
+  padding: 100px 0;
+  position: relative;
+  z-index: 5;
+}
+
+.radar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.radar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.1s cubic-bezier(0.1, 0.5, 0.4, 1);
+  will-change: transform;
+  height: 100%;
+}
+
+.radar-icon {
+  margin: 0 auto 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.radar-icon.violet { color: var(--accent-violet); }
+.radar-icon.cyan { color: var(--accent-cyan); }
+.radar-icon.pink { color: var(--accent-pink); }
+.radar-icon.amber { color: var(--accent-amber); }
+
+.radar-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.radar-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.skill-meter {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.skill-meter .fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.fill.violet { background: var(--accent-violet); }
+.fill.cyan { background: var(--accent-cyan); }
+.fill.pink { background: var(--accent-pink); }
+.fill.amber { background: var(--accent-amber); }
+
+/* Reverse scroll scrubber */
+.marquee-track.reverse {
+  animation: none;
+}
+
+@media (max-width: 1024px) {
+  .radar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .radar-grid {
+    grid-template-columns: 1fr;
+  }
+}

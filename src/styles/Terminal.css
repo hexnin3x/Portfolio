@@ -1,0 +1,173 @@
+/* ==============================================================
+   TERMINAL MODE v3 — Premium Kinetic Aesthetic
+   ============================================================== */
+
+.terminal-page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg-void);
+  overflow: hidden;
+}
+
+.terminal-container {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.terminal-window {
+  width: 100%;
+  max-width: 1000px;
+  height: 80vh;
+  /* Override default glass card padding to zero so header can be flush */
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  background: rgba(255,255,255,0.02);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.text-violet {
+  color: var(--accent-violet);
+}
+
+.terminal-action-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.terminal-action-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-violet);
+  background: rgba(139,92,246,0.1);
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1rem;
+  line-height: 1.8;
+  cursor: text;
+}
+
+/* Scrollbar */
+.terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+.line {
+  margin-bottom: 12px;
+}
+
+.system {
+  color: var(--accent-cyan);
+  opacity: 0.8;
+}
+
+.command {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+.output {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.prompt {
+  color: var(--accent-violet);
+  font-weight: bold;
+  margin-right: 16px;
+  user-select: none;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.input-line input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  outline: none;
+  caret-color: var(--accent-violet);
+}
+
+/* Command Output Styling */
+.help-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.cmd {
+  color: var(--accent-amber);
+  font-weight: bold;
+}
+
+.info-block {
+  margin-left: 20px;
+  border-left: 2px solid var(--border-hover);
+  padding-left: 16px;
+  color: var(--text-secondary);
+}
+
+.info-header {
+  color: var(--text-primary);
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-violet);
+}
+
+.highlight {
+  color: var(--accent-cyan);
+  font-weight: bold;
+}

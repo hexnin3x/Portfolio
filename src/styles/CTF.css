@@ -1,0 +1,141 @@
+/* ==============================================================
+   CTF — Operations Showcase v3
+   ============================================================== */
+
+.ctf-page {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===================== PLATFORM CARDS ===================== */
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.platform-card {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.platform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.glow-text {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.glow-text.violet { color: var(--accent-violet); text-shadow: 0 0 20px rgba(139,92,246,0.5); }
+.glow-text.pink { color: var(--accent-pink); text-shadow: 0 0 20px rgba(236,72,153,0.5); }
+.glow-text.cyan { color: var(--accent-cyan); text-shadow: 0 0 20px rgba(6,182,212,0.5); }
+
+.platform-percentile {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.platform-rank {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.rank-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.rank-value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.platform-points {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  display: inline-block;
+  align-self: flex-start;
+}
+
+/* ===================== ACHIEVEMENT ROWS ===================== */
+.achievements-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.achievement-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 40px;
+}
+
+.achievement-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.03);
+}
+
+.achievement-icon.violet { color: var(--accent-violet); border: 1px solid rgba(139,92,246,0.3); }
+.achievement-icon.cyan { color: var(--accent-cyan); border: 1px solid rgba(6,182,212,0.3); }
+.achievement-icon.pink { color: var(--accent-pink); border: 1px solid rgba(236,72,153,0.3); }
+.achievement-icon.amber { color: var(--accent-amber); border: 1px solid rgba(245,158,11,0.3); }
+
+.achievement-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.achievement-body p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+  .platforms-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .achievement-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+}
